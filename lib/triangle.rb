@@ -5,11 +5,11 @@ class Triangle
   
   def initialize (side1, side2, side3)
     @sides = [side1, side2, side3]
-    @sides.sort!
+    
   end
   
   def kind
-    if @sides.any?{|side| side <= 0} || ((@sides[0] + @sides[1]) <= @sides[2])
+    if @sides.any?{|side| side <= 0} || ((@sides[0] + @sides[1]) <= @sides[2]) || ((@sides[1] + @sides[2]) <= @sides[0]) || ((@sides[0] + @sides[2]) <= @sides[1]) 
       raise TriangleError
     elsif @sides.uniq.length == 1
       :equilateral
